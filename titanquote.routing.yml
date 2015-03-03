@@ -1,0 +1,7 @@
+titan_quote:
+  path: '/titan/quote'
+  defaults:
+    _controller: '\Drupal\titanquote\Controller\DefaultController::quoteAction'
+    _title: 'Random Quote'
+  requirements:
+    _permission: 'access content'
