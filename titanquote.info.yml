@@ -1,0 +1,6 @@
+name: Titan Quote
+type: module
+description: Provides a url that produces a random quote from local configuration
+package: Titan
+version: 0.0.1
+core: 8.x
