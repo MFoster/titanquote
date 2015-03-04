@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - titanquote
+name: 'Famous Quotes'
+type: titanquote
+description: 'A famous or well known quote.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true
