@@ -1,0 +1,16 @@
+parameters:
+  titan.quotes:
+    - author: "Aristotle"
+      quote: "It is the mark of an educated mind to be able to entertain a thought without accepting it."
+    - author: "Aristotle"
+      quote: "Educating the mind without educating the heart is no education at all."
+    - author: "Albert Einstein"
+      quote: "The true sign of intelligence is not knowledge but imagination."
+    - author: "Albert Einstein"
+      quote: "Education is what remains after one has forgotten what one has learned in school."
+  titan.quote.local.class: Drupal\titanquote\Service\QuoteCollection
+services:
+  titan.quote.local:
+    class: %titan.quote.local.class%
+    calls:
+      - [setQuotes, [%titan.quotes%]]
