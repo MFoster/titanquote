@@ -10,10 +10,12 @@ class DefaultController extends ControllerBase {
    * {@inheritdoc}
    */
   public function quoteAction() {
-     return array(
-      '#type' => 'markup',
-      '#markup' => t('He who dares to teach must never cease to learn.'),
-    );
+  	$service = \Drupal::service('titan.quote.local');
+  	$quote = $service->getRandom();
+		return array(
+			'#type' => 'markup',
+			'#markup' => '<p>' . $quote['quote'] . '</p><author>' . $quote['author'] .'</author>',
+		);
   }
 
 }
