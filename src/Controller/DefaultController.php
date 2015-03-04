@@ -10,7 +10,7 @@ class DefaultController extends ControllerBase {
    * {@inheritdoc}
    */
   public function quoteAction() {
-  	$service = \Drupal::service('titan.quote.local');
+  	$service = \Drupal::service('titan.quote.database');
   	$quote = $service->getRandom();
 		return array(
 			'#type' => 'markup',
