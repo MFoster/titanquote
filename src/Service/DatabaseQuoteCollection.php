@@ -2,7 +2,7 @@
 
 namespace Drupal\titanquote\Service;
 
-class DatabaseQuoteCollection
+class DatabaseQuoteCollection extends QuoteCollection 
 {
     protected $dbal;
 
@@ -31,25 +31,20 @@ class DatabaseQuoteCollection
     
     }
 
-    protected function setQuotes($quotes)
+    public function setQuotes($quotes)
     {
-    	$arr = array();
-    	foreach($quotes as $quote){
-    		array_push($arr, array('author' => $quote->title, 'quote' => $quote->body_value));
-    	}
-    	$this->quotes = $arr;
+      $arr = array();
+      foreach($quotes as $quote){
+        array_push($arr, array('author' => $quote->title, 'quote' => $quote->body_value));
+      }
+      parent::setQuotes($arr);
     }
 
     public function getRandom()
     {
-    	if($this->quotes == false){
-    		$this->setQuotes($this->getQuotes());
-    	}
-
-			$max = count($this->quotes) - 1;
-
-			$index = floor(rand(0, $max));
-
-			return $this->quotes[$index];
+      if($this->quotes == false){
+        $this->setQuotes($this->getQuotes());
+      }
+      return parent::getRandom();
     }
 }

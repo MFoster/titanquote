@@ -9,7 +9,9 @@ parameters:
     - author: "Albert Einstein"
       quote: "Education is what remains after one has forgotten what one has learned in school."
   titan.quote.local.class: Drupal\titanquote\Service\QuoteCollection
+  titan.quote.basic.class: Drupal\titanquote\Service\QuoteCollection
   titan.quote.database.class: Drupal\titanquote\Service\DatabaseQuoteCollection
+  titan.quote.factory.class: Drupal\titanquote\Service\QuoteFactory
 services:
   titan.quote.local:
     class: %titan.quote.local.class%
@@ -19,3 +21,12 @@ services:
     class: %titan.quote.database.class%
     arguments:
       - @database
+  titan.quote.factory:
+    class: %titan.quote.factory.class%
+    arguments:
+      - @titan.quote.database
+      - @titan.quote.local
+  titan.quote:
+    class: %titan.quote.basic.class%
+    factory_service: titan.quote.factory
+    factory_method: createCollection
