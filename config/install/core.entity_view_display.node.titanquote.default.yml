@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.titanquote.body
+    - node.type.titanquote
+  module:
+    - comment
+    - image
+    - taxonomy
+    - text
+    - user
+id: node.titanquote.default
+targetEntityType: node
+bundle: titanquote
+mode: default
+content:
+  field_image:
+    type: image
+    weight: -1
+    settings:
+      image_style: large
+      image_link: ''
+    third_party_settings: {  }
+    label: hidden
+  body:
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    label: hidden
+hidden:
+  langcode: true
+  field_image: true
+  field_tags: true
+third_party_settings: {  }
